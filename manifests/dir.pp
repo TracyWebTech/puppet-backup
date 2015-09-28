@@ -1,6 +1,6 @@
 define backup::dir (
-  $source = $title,
   $destination,
+  $source = $title,
   $frequency = 'daily',
   $retention = 7,
 ) {
@@ -20,6 +20,7 @@ define backup::dir (
     'daily':   { $hour = '0' $monthday = '*' $weekday = '*' }
     'weekly':  { $hour = '0' $monthday = '*' $weekday = '1' }
     'monthly': { $hour = '0' $monthday = '1' $weekday = '*' }
+    default:   { $hour = '0' $monthday = '*' $weekday = '*' }
   }
 
   cron { "backup ${source}":
