@@ -1,0 +1,22 @@
+#!/bin/bash
+
+MEDIA_DIR="<%= @source %>"
+BACKUP_DEST="<%= @destination %>"
+
+TIMESTAMP=$(date '+%Y%m%d%H%M%S')
+HOSTNAME=$(hostname)
+BACKUPNAME="${HOSTNAME}-backup-media-${TIMESTAMP}"
+FILENAME="${BACKUPNAME}.tar.gz"
+
+TMPDIR=$(mktemp -d /tmp/backup-media-XXXXXX)
+BACKUP_DIR="${TMPDIR}/${BACKUPNAME}"
+mkdir -p ${BACKUP_DIR}
+
+cp -a ${MEDIA_DIR} ${BACKUP_DIR}
+
+if [ ! -d ${BACKUP_DEST} ]; then
+    mkdir -p ${BACKUP_DEST}
+fi
+
+cd ${TMPDIR}
+tar czf ${BACKUP_DEST}/${FILENAME} ${BACKUPNAME}

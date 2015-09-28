@@ -1,3 +1,1 @@
-class backup {
-
-}
+class backup {}
