@@ -20,3 +20,5 @@ fi
 
 cd ${TMPDIR}
 tar czf ${BACKUP_DEST}/${FILENAME} ${BACKUPNAME}
+
+find ${BACKUP_DEST}/*.tar.gz -mtime +<%= @retention %> -exec rm {} \;

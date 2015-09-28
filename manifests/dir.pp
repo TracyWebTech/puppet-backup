@@ -2,6 +2,7 @@ define backup::dir (
   $source = $title,
   $destination,
   $frequency = 'daily',
+  $retention = 7,
 ) {
 
   file { $destination:
