@@ -2,7 +2,7 @@
   "name": "puppet-backup",
   "version": "0.1.0",
   "author": "tracywebtech",
-  "summary": "Puppet module to compress a source file/directory and backup it through secure copy (scp)",
+  "summary": "Puppet module to compress a source file/directory and move it to another folder",
   "license": "GLP, Version 2.0",
   "source": "https://github.com/TracyWebTech/puppet-backup",
   "project_page": "https://github.com/TracyWebTech/puppet-backup",
